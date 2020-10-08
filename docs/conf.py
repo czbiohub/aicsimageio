@@ -21,9 +21,8 @@
 import os
 import sys
 
-import sphinx_rtd_theme
-
 import aicsimageio
+import sphinx_rtd_theme
 
 sys.path.insert(0, os.path.abspath(".."))
 
@@ -60,9 +59,9 @@ templates_path = ["_templates"]
 # You can specify multiple suffix as a list of string:
 #
 source_suffix = {
-    ".rst": "restructuredtext",
-    ".txt": "markdown",
-    ".md": "markdown",
+        ".rst": "restructuredtext",
+        ".txt": "markdown",
+        ".md": "markdown",
 }
 
 # The master toctree document.
@@ -70,7 +69,7 @@ master_doc = "index"
 
 # General information about the project.
 project = u"aicsimageio"
-copyright = u"2020, Allen Institute for Cell Science"
+copyright = u'2019, Allen Institute for Cell Science'
 author = u"Allen Institute for Cell Science"
 
 # The version info for the project you"re documenting, acts as replacement
@@ -135,12 +134,15 @@ latex_elements = {
     # The paper size ("letterpaper" or "a4paper").
     #
     # "papersize": "letterpaper",
+
     # The font size ("10pt", "11pt" or "12pt").
     #
     # "pointsize": "10pt",
+
     # Additional stuff for the LaTeX preamble.
     #
     # "preamble": "",
+
     # Latex figure (float) alignment
     #
     # "figure_align": "htbp",
@@ -150,13 +152,9 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass
 # [howto, manual, or own class]).
 latex_documents = [
-    (
-        master_doc,
-        "aicsimageio.tex",
-        u"aicsimageio Documentation",
-        u"Allen Institute for Cell Science",
-        "manual",
-    ),
+    (master_doc, "aicsimageio.tex",
+     u"aicsimageio Documentation",
+     u"Allen Institute for Cell Science", "manual"),
 ]
 
 
@@ -164,7 +162,11 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, "aicsimageio", u"aicsimageio Documentation", [author], 1)]
+man_pages = [
+    (master_doc, "aicsimageio",
+     u"aicsimageio Documentation",
+     [author], 1)
+]
 
 
 # -- Options for Texinfo output ----------------------------------------
@@ -173,13 +175,10 @@ man_pages = [(master_doc, "aicsimageio", u"aicsimageio Documentation", [author],
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (
-        master_doc,
-        "aicsimageio",
-        u"aicsimageio Documentation",
-        author,
-        "aicsimageio",
-        "A Python library for reading and writing image data with specific support for handling bio-formats.",
-        "Image Processing, Computational Biology",
-    ),
+    (master_doc, "aicsimageio",
+     u"aicsimageio Documentation",
+     author,
+     "aicsimageio",
+     "A Python library for reading and writing image data with specific support for handling bio-formats.",
+     "Image Processing, Computational Biology"),
 ]

@@ -771,10 +771,7 @@ class LifReader(Reader):
             # have the same dimensions
             # Read all data in the image
             data, _ = LifReader._get_array_from_offset(
-                self._file,
-                self._chunk_offsets,
-                self._chunk_lengths,
-                self.metadata,
+                self._file, self._chunk_offsets, self._chunk_lengths, self.metadata,
             )
 
         return data

@@ -215,9 +215,7 @@ def reshape_data(
 
 
 def transpose_to_dims(
-    data: types.ArrayLike,
-    given_dims: str,
-    return_dims: str,
+    data: types.ArrayLike, given_dims: str, return_dims: str,
 ) -> types.ArrayLike:
     """
     This shuffles the data dimensions from given_dims to return_dims. Each dimension
