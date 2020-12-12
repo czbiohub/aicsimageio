@@ -111,7 +111,7 @@ class MicromanagerReader(OmeTiffReader):
                               'mm_metadata': mm_metadata}
         return self._metadata
 
-    def get_page_metadata(self, z=0, c=0, t=0, s=0) -> dict:
+    def get_page_metadata(self, s=0, t=0, c=0, z=0) -> dict:
         ## TODO: Check that inputs are of the correct dimensions
 
         if self._IFD_mapping is None:
@@ -120,12 +120,12 @@ class MicromanagerReader(OmeTiffReader):
             self._IFD_mapping = {}
             for i in range(pixels.plane_count):
                 tiff_data = pixels.TiffData(i)
-                self._IFD_mapping[(tiff_data.FirstZ,
+                self._IFD_mapping[(tiff_data.FirstT,
                                    tiff_data.FirstC,
-                                   tiff_data.FirstT)] = tiff_data.IFD
+                                   tiff_data.FirstZ)] = tiff_data.IFD
 
         with TiffFile(self._file) as tiff:
-            IFD = self._IFD_mapping[(z, c, t)]
+            IFD = self._IFD_mapping[(t, c, z)]
             page = tiff.series[s].pages[IFD].aspage()
             page_metadata = page.tags[51123].value
 
