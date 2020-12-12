@@ -130,7 +130,7 @@ class TiffReader(Reader):
             # Combine length of scenes and operating shape
             # Replace YX dims with empty dimensions
             operating_shape = (len(scenes), *operating_shape)
-            if scenes[0].keyframe.samplesperpixel != 1:
+            if scenes[0].pages[0].keyframe.samplesperpixel != 1:
                 # if it's a multichannel (RGB) we need to pull in the channels as well
                 operating_shape = operating_shape[:-3] + (1, 1, 1)
             else:  # the data is a 2D (Y, X) so read 2D planes
@@ -203,7 +203,7 @@ class TiffReader(Reader):
                     scenes = [scenes[self.specific_s_index]]
 
                 single_scene_dims = scenes[0].pages.axes
-                if scenes[0].keyframe.samplesperpixel != 1:
+                if scenes[0].pages[0].keyframe.samplesperpixel != 1:
                     # if it's an RGB pixeltype then map Samples (S) to Channels (C)
                     if "C" in single_scene_dims:
                         msg = "MultiChannel RGB tif images are not currently supported."
